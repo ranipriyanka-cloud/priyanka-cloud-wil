@@ -1,0 +1,8 @@
+{
+  "parameters": {
+    "vmName": { "value": "lab2ca-ubuntu-vm" },
+    "adminUsername": { "value": "azureuser" },
+    "adminPassword": { "value": "MySecureP@ssw0rd2025" },
+    "location": { "value": "australiaeast" }
+  }
+}

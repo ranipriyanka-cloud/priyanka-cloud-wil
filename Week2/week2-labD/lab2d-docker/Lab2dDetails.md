@@ -1,3 +1,16 @@
+Containerize a Simple Application with Docker and Deploy via CLI, Portal, and ARM Templates
+
+
+Objective
+
+    Install and verify Docker installation
+    Create a simple Python web application
+    Write a Dockerfile to containerize the app
+    Build and run a Docker image locally
+    Deploy containerized app to Azure Container Instance (ACI) using CLI, Portal, and ARM Template
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 @ranipriyanka-cloud ➜ /workspaces/priyanka-cloud-wil/Week2 (main) $ cd week2-labD
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 @ranipriyanka-cloud ➜ /workspaces/priyanka-cloud-wil/Week2/week2-labD (main) $ docker --version

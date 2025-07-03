@@ -1,0 +1,1 @@
+Provision an Azure Cosmos DB account using the Core (SQL) API, create a database and container, and perform queries using Azure Portal and Visual Studio Code.

@@ -1,0 +1,2 @@
+SELECT * FROM grades g WHERE g.grade > 80
+

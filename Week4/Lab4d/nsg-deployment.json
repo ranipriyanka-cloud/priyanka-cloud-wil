@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2023-02-01",
+      "name": "web-nsg",
+      "location": "australiaeast",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "Allow-HTTP",
+            "properties": {
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "80",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks/subnets",
+      "apiVersion": "2023-02-01",
+      "name": "lab4-vnet/web-subnet",
+      "dependsOn": ["Microsoft.Network/networkSecurityGroups/web-nsg"],
+      "properties": {
+        "addressPrefix": "10.1.1.0/24",
+        "networkSecurityGroup": {
+          "id": "/subscriptions/ef7bf398-50f0-4ac0-a233-43eb9543031c/resourceGroups/lab4-rg/providers/Microsoft.Network/networkSecurityGroups/web-nsg"
+        }
+      }
+    }
+  ]
+}

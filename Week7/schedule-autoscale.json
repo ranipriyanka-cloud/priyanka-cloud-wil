@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Insights/autoscalesettings",
+      "apiVersion": "2015-04-01",
+      "name": "app-service-plan-17780",
+      "location": "australiaeast",
+      "properties": {
+        "targetResourceUri": "/subscriptions/ef7bf398-50f0-4ac0-a233-43eb9543031c/resourceGroups/lab7-rg/providers/Microsoft.Web/serverfarms/app-service-plan-17780",
+        "enabled": true,
+        "profiles": [
+          {
+            "name": "BusinessHoursScaling",
+            "capacity": {
+              "minimum": "3",
+              "maximum": "5",
+              "default": "3"
+            },
+            "recurrence": {
+              "frequency": "Week",
+              "schedule": {
+                "timeZone": "AUS Eastern Standard Time",
+                "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "hours": [8],
+                "minutes": [0]
+              }
+            },
+            "rules": []
+          },
+          {
+            "name": "OffHoursScaling",
+            "capacity": {
+              "minimum": "1",
+              "maximum": "1",
+              "default": "1"
+            },
+            "recurrence": {
+              "frequency": "Week",
+              "schedule": {
+                "timeZone": "AUS Eastern Standard Time",
+                "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "hours": [18],
+                "minutes": [0]
+              }
+            },
+            "rules": []
+          }
+        ]
+      }
+    }
+  ]
+}
